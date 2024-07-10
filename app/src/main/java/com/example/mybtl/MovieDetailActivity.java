@@ -3,10 +3,15 @@ package com.example.mybtl;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,7 +27,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     private VideoView videoView;
 
     private ImageView imvImage;
-    private TextView tvName, tvContent, tvCategory, tvTime, tvPrice;
+    private TextView tvName, tvContent, tvCategory, tvPremiere, tvPrice;
+
+    private Button btnBooking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +46,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvName = findViewById(R.id.tv_name);
         tvCategory = findViewById(R.id.tv_category);
         tvContent = findViewById(R.id.tv_content);
-        tvTime = findViewById(R.id.tv_time);
+        tvPremiere = findViewById(R.id.tv_premiere);
         tvPrice = findViewById(R.id.tv_price);
+        btnBooking = findViewById(R.id.btn_booking);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -48,15 +56,18 @@ public class MovieDetailActivity extends AppCompatActivity {
             String name = intent.getStringExtra("name");
             String content = intent.getStringExtra("content");
             String category = intent.getStringExtra("category");
-            String time = intent.getStringExtra("time");
+            String premiere = intent.getStringExtra("premiere");
             int price = intent.getIntExtra("price", -1);
             int trailer = intent.getIntExtra("trailer",-1);
+            String email = intent.getStringExtra("email");
 
+            // đổ dữ liệu nhận được từ intent
             imvImage.setImageResource(image);
             tvName.setText(name);
             tvContent.setText(content);
             tvCategory.setText(category);
-            tvTime.setText(time);
+            tvPremiere.setText(premiere);
+            // định dạng tiền Việt Nam
             NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
             String formattedPrice = currencyFormatter.format(price);
             tvPrice.setText(formattedPrice);
@@ -69,8 +80,40 @@ public class MovieDetailActivity extends AppCompatActivity {
             MediaController mediaController = new MediaController(this);
             videoView.setMediaController(mediaController);
             mediaController.setAnchorView(videoView);
+
+            btnBooking.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (email == null || email.isEmpty()) {
+                        showDialogLogin();
+                    }else {
+                        Intent intent2 = new Intent(MovieDetailActivity.this, BookingActivity.class);
+                        intent2.putExtra("name", name);
+                        intent2.putExtra("premiere", premiere);
+                        intent2.putExtra("price", price);
+                        startActivity(intent2);
+                    }
+                }
+            });
         }
+    }
+    private void showDialogLogin(){
+        LayoutInflater inflater = LayoutInflater.from(MovieDetailActivity.this);
+        View dialogView = inflater.inflate(R.layout.dialog_login, null);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(MovieDetailActivity.this);
+        builder.setView(dialogView);
 
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        Button dialogButton = dialogView.findViewById(R.id.btnLogin);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieDetailActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

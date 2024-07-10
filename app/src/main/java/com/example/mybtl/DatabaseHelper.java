@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Content text," +
                 "Category text," +
                 "Trailer integer," +
-                "Time text," +
+                "Premiere text," +
                 "Price integer" + ")";
         db.execSQL(sqlMovies);
     }

@@ -3,7 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
@@ -19,13 +19,11 @@
             android:paddingBottom="10dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/border_bottom">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -34,6 +32,7 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Venom"
@@ -54,11 +53,31 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100.000 VNĐ / 1 vé"
+                    android:text="100.000 đ"
                     android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/tv_premiere"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_premiere"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24/07/2024"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -105,81 +124,82 @@
                     android:layout_gravity="center"
                     android:columnCount="4"
                     android:rowCount="3">
-
                     <Button
+                        android:id="@+id/chair1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="1" />
-
                     <Button
+                        android:id="@+id/chair2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="2" />
-
                     <Button
+                        android:id="@+id/chair3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="3" />
-
                     <Button
+                        android:id="@+id/chair4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="4" />
-
                     <Button
+                        android:id="@+id/chair5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="5" />
                     <Button
+                        android:id="@+id/chair6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="6" />
                     <Button
+                        android:id="@+id/chair7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="7" />
                     <Button
+                        android:id="@+id/chair8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="8" />
-
                     <Button
+                        android:id="@+id/chair9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_columnWeight="1"
                         android:layout_columnSpan="2"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="9" />
                     <Button
+                        android:id="@+id/chair10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_columnWeight="1"
                         android:layout_columnSpan="2"
-                        android:background="@drawable/border_button_chair"
+                        android:backgroundTint="@color/green"
                         android:text="10" />
-
                 </GridLayout>
             </LinearLayout>
-
-
         </LinearLayout>
         <LinearLayout
         android:layout_width="match_parent"
@@ -209,7 +229,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:padding="5dp">
@@ -224,30 +244,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15.000 VNĐ"
+                        android:text="15.000 đ"
                         android:textColor="@color/red"
                         android:textSize="20sp"
+                        android:layout_marginTop="5dp"
                         android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:text="@string/current_quantity"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="3"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -258,21 +259,22 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:labelFor="@+id/edtQuantity"
+                        android:labelFor="@+id/edt_drink"
                         android:paddingVertical="5dp"
                         android:text="@string/quantity"
                         android:textAlignment="center"
                         android:textSize="20sp" />
 
                     <EditText
-                        android:id="@+id/edtQuantity"
+                        android:id="@+id/edt_drink"
                         android:layout_width="90dp"
                         android:layout_height="48dp"
                         android:background="@drawable/border_outline"
                         android:ems="10"
                         android:hint="0"
                         android:inputType="number"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="0"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -284,7 +286,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:padding="5dp">
@@ -299,30 +301,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="50.000 VNĐ"
+                        android:text="50.000 đ"
+                        android:layout_marginTop="5dp"
                         android:textColor="@color/red"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:text="@string/current_quantity"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="5"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -333,21 +316,22 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:labelFor="@+id/edtQuantity2"
+                        android:labelFor="@+id/edt_food"
                         android:paddingVertical="5dp"
                         android:text="@string/quantity"
                         android:textAlignment="center"
                         android:textSize="20sp" />
 
                     <EditText
-                        android:id="@+id/edtQuantity2"
+                        android:id="@+id/edt_food"
                         android:layout_width="90dp"
                         android:layout_height="48dp"
                         android:background="@drawable/border_outline"
                         android:ems="10"
                         android:hint="0"
                         android:inputType="number"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="0"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

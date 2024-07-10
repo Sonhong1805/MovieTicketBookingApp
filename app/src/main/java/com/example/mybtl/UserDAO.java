@@ -8,26 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 public class UserDAO {
-    public static ArrayList<User> getAll(Context context){
-        ArrayList<User> ds = new ArrayList<>();
-        DatabaseHelper helper = new DatabaseHelper(context);
-        SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cs = db.rawQuery("select * from Users", null);
-        cs.moveToFirst();
-        while(!cs.isAfterLast()){
-            int ma = cs.getInt(0);
-            String fullname = cs.getString(1);
-            String email = cs.getString(2);
-            String password = cs.getString(3);
-            String phoneNumber = cs.getString(4);
-            User user = new User(ma, fullname, email, password, phoneNumber);
-            ds.add(user);
-            cs.moveToNext();
-        }
-        cs.close();
-        db.close();
-        return ds;
-    }
+    // chức năng đăng ký
     public static boolean register(Context context,String fullname, String email, String password, String phoneNumber){
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -40,6 +21,7 @@ public class UserDAO {
         return (row > 0);
     }
 
+    // kiểm tra email tồn tại chưa
     public static boolean checkEmail(Context context,String email){
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -47,6 +29,7 @@ public class UserDAO {
         return cursor.getCount() > 0;
     }
 
+    //kiểm tra email và password có hợp lệ không
     public static boolean checkEmailPassword(Context context,String email, String password){
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -54,6 +37,7 @@ public class UserDAO {
         return cursor.getCount() > 0;
     }
 
+    //lấy thông tin chi tiết của user
     public static User getDetails(Context context, String email) {
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();

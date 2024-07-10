@@ -17,9 +17,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private Context context;
     private ArrayList<Movie> movies;
 
-    public MovieAdapter(Context context, ArrayList<Movie> movies) {
+    private  String email;
+
+    public MovieAdapter(Context context, ArrayList<Movie> movies, String email) {
         this.context = context;
         this.movies = movies;
+        this.email = email;
     }
 
     @NonNull
@@ -38,16 +41,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.imv_image.setImageResource(movie.getImage());
         holder.tv_name.setText(movie.getName());
 
+        // gửi data movie sang trang chi tiết phim
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, MovieDetailActivity.class);
-            intent.putExtra("id", movie.getId());
             intent.putExtra("name", movie.getName());
             intent.putExtra("image", movie.getImage());
             intent.putExtra("content", movie.getContent());
             intent.putExtra("category", movie.getCategory());
             intent.putExtra("trailer", movie.getTrailer());
-            intent.putExtra("time", movie.getTime());
+            intent.putExtra("premiere", movie.getPremiere());
             intent.putExtra("price", movie.getPrice());
+            intent.putExtra("email", email);
             context.startActivity(intent);
         });
     }

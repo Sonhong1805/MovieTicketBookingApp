@@ -7,17 +7,17 @@ public class Movie {
     private String Content;
     private String Category;
     private int Trailer;
-    private String Time;
+    private String Premiere;
     private int Price;
 
-    public Movie(int id, String name, int image, String content, String category, int trailer, String time, int price) {
+    public Movie(int id, String name, int image, String content, String category, int trailer, String premiere, int price) {
         Id = id;
         Name = name;
         Image = image;
         Content = content;
         Category = category;
         Trailer = trailer;
-        Time = time;
+        Premiere = premiere;
         Price = price;
     }
 
@@ -69,12 +69,12 @@ public class Movie {
         Trailer = trailer;
     }
 
-    public String getTime() {
-        return Time;
+    public String getPremiere() {
+        return Premiere;
     }
 
-    public void setTime(String time) {
-        Time = time;
+    public void setPremiere(String premiere) {
+        Premiere = premiere;
     }
 
     public int getPrice() {

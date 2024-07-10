@@ -2,6 +2,7 @@ package com.example.mybtl;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText edtFullname, edtEmail, edtPassword, edtPhoneNumber,edtConfirmPassword;
 
     Button btnRegister, btnReset,btnLogin;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,12 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Mật khẩu chưa trùng khớp !!!", Toast.LENGTH_SHORT).show();
                         return;
                     }
+
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        Toast.makeText(RegisterActivity.this, "Email không hợp lệ !!!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     if(UserDAO.checkEmail(RegisterActivity.this,email)){
                         Toast.makeText(RegisterActivity.this, "Tên đăng nhập đã tồn tại !!!", Toast.LENGTH_SHORT).show();
                         return;
