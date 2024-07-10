@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    tools:context=".MainActivity"
+    android:layout_margin="8dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_movie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav_view">
+    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        app:itemBackground="@color/black"
+        app:itemIconSize="32dp"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+</RelativeLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_account"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="1dp"
+        android:background="#ACA1A1"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:stretchColumns="*">
+
+        <TableRow android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:labelFor="@id/edtUsername"
+                android:paddingHorizontal="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/email"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edtUsername"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="0dp"
+                android:layout_weight="3"
+                android:autofillHints="username"
+                android:inputType="text"
+                android:maxWidth="488dp"
+                android:paddingHorizontal="10dp"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:labelFor="@id/edtPassword"
+                android:padding="8dp"
+                android:text="@string/password"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="0dp"
+                android:layout_weight="3"
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:maxWidth="488dp"
+                android:paddingHorizontal="10dp"
+                android:textSize="20sp" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#B71C1C"
+            android:textSize="18sp"
+            android:maxWidth="320dp"
+            android:text="@string/login"
+            android:textColor="#F5FBF6" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:background="#B71C1C"
+            android:maxWidth="320dp"
+            android:text="@string/register"
+            android:textColor="#F5FBF6" />
+
+    </LinearLayout>
+
+</LinearLayout>
