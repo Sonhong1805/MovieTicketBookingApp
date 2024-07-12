@@ -32,12 +32,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Premiere text," +
                 "Price integer" + ")";
         db.execSQL(sqlMovies);
+
+        // bổ sung sau ngày đặt + giờ đặt
+        String sqlBills = "create table Bills(" +
+                "Id integer primary key," +
+                "MovieName text," +
+                "MoviePremiere text," +
+                "MoviePrice integer," +
+                "SelectedChair text," +
+                "SelectedFood text," +
+                "MethodPayment text," +
+                "Email text," +
+                "TotalPrice integer" + ")";
+        db.execSQL(sqlBills);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS User");
+        db.execSQL("DROP TABLE IF EXISTS Users");
         db.execSQL("DROP TABLE IF EXISTS Movies");
+        db.execSQL("DROP TABLE IF EXISTS Bills");
         onCreate(db);
     }
 }

@@ -2,10 +2,16 @@ package com.example.mybtl;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +32,11 @@ public class BookingActivity extends AppCompatActivity {
     Button btnConfirm;
     TextView tvName, tvPrice, tvPremiere;
     EditText edtDrink,edtFood;
-    String foodResult = "";
+    String selectedFood = "",movieName = "",selectedMethod = "";
     Button chair1, chair2, chair3,chair4,chair5,chair6,chair7,chair8,chair9,chair10;
     List<Button> selectedChairs = new ArrayList<>();
+    Spinner spnMethods;
+    int totalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +77,73 @@ public class BookingActivity extends AppCompatActivity {
         chair9.setOnClickListener(chairClickListener);
         chair10.setOnClickListener(chairClickListener);
 
+        // hiển thị từng phương thức thanh toán
+        spnMethods = findViewById(R.id.spn_method);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BookingActivity.this,R.array.payment_method_items, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_method_item);
+        spnMethods.setAdapter(adapter);
+
+        //chọn phương thức thanh toán
+        spnMethods.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                selectedMethod = selectedItem;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        movieName = intent.getStringExtra("name");
         int price = intent.getIntExtra("price", -1);
         String premiere = intent.getStringExtra("premiere");
+        String email = intent.getStringExtra("email");
 
-        tvName.setText(name);
+        List<String> listChairs = BillDAO.getSelectedChairsByMovie(this, movieName);
+        for (String chairs : listChairs) {
+            String[] chairArray = chairs.split(", ");
+
+            for (String chair : chairArray) {
+                switch (chair.trim()) {
+                    case "1":
+                        chair1.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "2":
+                        chair2.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "3":
+                        chair3.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "4":
+                        chair4.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "5":
+                        chair5.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "6":
+                        chair6.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "7":
+                        chair7.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "8":
+                        chair8.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "9":
+                        chair9.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    case "10":
+                        chair10.setBackgroundColor(getResources().getColor(R.color.red));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        tvName.setText(movieName);
         tvPremiere.setText(premiere);
         // định dạng tiền Việt Nam
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
@@ -95,25 +164,25 @@ public class BookingActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
-                TextView tvName,tvPrice,tvPremiere,tvSelectedFood,tvQuantity, tvSelectedChair,tvTotalPrice;
+                TextView tvName,tvPrice,tvPremiere,tvSelectedFood,tvQuantity, tvSelectedChair,tvTotalPrice,tvMethodPayment;
                 Button btnCancel,btnAgree;
+                ImageView imgQr;
 
                 // chọn số lượng đồ ăn/uống
                 int drinkQuantity = Integer.parseInt(edtDrink.getText().toString());
                 int foodQuantity = Integer.parseInt(edtFood.getText().toString());
-                foodResult = "";
 
                 if (drinkQuantity == 0 && foodQuantity == 0) {
-                    foodResult = "0";
+                    selectedFood = "0";
                 } else {
                     if (drinkQuantity > 0) {
-                        foodResult += "Coca cola (15.000 đ) x" + drinkQuantity;
+                        selectedFood += "Coca cola (15.000 đ) x" + drinkQuantity;
                     }
                     if (foodQuantity > 0) {
-                        if (!foodResult.isEmpty()) {
-                            foodResult += ", ";
+                        if (!selectedFood.isEmpty()) {
+                            selectedFood += ", ";
                         }
-                        foodResult += "Bỏng ngô Caramel (50.000 đ) x" + foodQuantity;
+                        selectedFood += "Bỏng ngô Caramel (50.000 đ) x" + foodQuantity;
                     }
                 }
 
@@ -124,13 +193,27 @@ public class BookingActivity extends AppCompatActivity {
                 tvQuantity = dialogView.findViewById(R.id.tv_quantity);
                 tvSelectedChair = dialogView.findViewById(R.id.tv_selected_chair);
                 tvTotalPrice = dialogView.findViewById(R.id.tv_total_price);
+                tvMethodPayment = dialogView.findViewById(R.id.tv_method_payment);
+                imgQr = dialogView.findViewById(R.id.img_qr);
+                ViewGroup.LayoutParams layoutParams = imgQr.getLayoutParams();
 
-                tvName.setText(name);
+                tvName.setText(movieName);
                 tvPremiere.setText(premiere);
                 NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
                 String formattedPrice = currencyFormatter.format(price);
                 tvPrice.setText(formattedPrice);
-                tvSelectedFood.setText(foodResult);
+                tvSelectedFood.setText(selectedFood);
+                tvMethodPayment.setText(selectedMethod);
+
+                // nếu phương thức thanh toán khác tiền mặt thì hiện mã qr không thì cho imageview biến mất
+                if (!selectedMethod.equals("Tiền mặt")) {
+                    imgQr.setImageResource(R.drawable.fake_qr);
+                } else {
+                    imgQr.setImageResource(0);
+                    layoutParams.height = 0;
+                    imgQr.setLayoutParams(layoutParams);
+                    imgQr.setVisibility(View.INVISIBLE);
+                }
 
                 int selectedQuantity = selectedChairs.size();
                 tvQuantity.setText(String.valueOf(selectedQuantity));
@@ -145,10 +228,10 @@ public class BookingActivity extends AppCompatActivity {
                     }
                     selectedChairsText.setLength(selectedChairsText.length() - 2);
                 }
-                tvSelectedChair.setText(selectedChairsText.toString());
+                String selectedChair = selectedChairsText.toString();
+                tvSelectedChair.setText(selectedChair);
 
                 // tính tổng giá tiền
-                int totalPrice = 0;
                 for (Button button : selectedChairs) {
                     int chairNumber = Integer.parseInt(button.getText().toString());
                     if (chairNumber == 9 || chairNumber == 10) {
@@ -174,8 +257,15 @@ public class BookingActivity extends AppCompatActivity {
                         if (selectedChairs.isEmpty()) {
                             Toast.makeText(BookingActivity.this, "Vui lòng chọn ghế ngồi !!!", Toast.LENGTH_SHORT).show();
                         }else {
-                            Intent intent2 = new Intent(BookingActivity.this, BookingHistoryActivity.class);
-                            startActivity(intent2);
+                            if(BillDAO.insert(BookingActivity.this,movieName,premiere,price,selectedChair,selectedFood,selectedMethod,email,totalPrice)){
+                                Toast.makeText(BookingActivity.this, "Thêm Hoá đơn thành công !", Toast.LENGTH_SHORT).show();
+                                // đang bug ở đây
+//                                Intent intent2 = new Intent(BookingActivity.this, BookingHistoryActivity.class);
+//                                intent2.putExtra("email", email);
+//                                startActivity(intent2);
+                            }else {
+                                Toast.makeText(BookingActivity.this, "Thêm Hoá đơn thất bại !", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
@@ -195,16 +285,24 @@ public class BookingActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Button button = (Button) v;
-            // toggle ghế đã chọn
-            if (button.isSelected()) {
-                button.setSelected(false);
-                button.setBackgroundColor(getResources().getColor(R.color.green));
+            int chairNumber = Integer.parseInt(button.getText().toString());
+
+            boolean isChairSelected = BillDAO.isChairSelected(BookingActivity.this,movieName, chairNumber);
+
+            if (isChairSelected) {
+                Toast.makeText(getApplicationContext(), "Ghế " + chairNumber + " đã được chọn!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Toggle ghế đã chọn
+            if (selectedChairs.contains(button)) {
                 selectedChairs.remove(button);
+                button.setBackgroundColor(getResources().getColor(R.color.green));
             } else {
-                button.setSelected(true);
-                button.setBackgroundColor(getResources().getColor(R.color.orange));
                 selectedChairs.add(button);
+                button.setBackgroundColor(getResources().getColor(R.color.orange));
             }
         }
     };
+
 }

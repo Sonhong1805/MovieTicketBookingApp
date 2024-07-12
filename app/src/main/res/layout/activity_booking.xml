@@ -114,7 +114,7 @@
 
                 <View
                     android:layout_width="200dp"
-                    android:layout_height="15dp"
+                    android:layout_height="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@color/black" />
 
@@ -215,18 +215,15 @@
             android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -240,7 +237,6 @@
                         android:text="Coca cola"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -250,12 +246,10 @@
                         android:layout_marginTop="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -264,7 +258,6 @@
                         android:text="@string/quantity"
                         android:textAlignment="center"
                         android:textSize="20sp" />
-
                     <EditText
                         android:id="@+id/edt_drink"
                         android:layout_width="90dp"
@@ -277,27 +270,23 @@
                         android:text="0"/>
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:padding="5dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Bỏng ngô Caramel"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -307,7 +296,6 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -341,7 +329,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:orientation="vertical" >
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -351,12 +338,11 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spn_method"
                 android:layout_width="match_parent"
                 android:background="@drawable/border_spinner"
                 android:spinnerMode="dropdown"
                 android:layout_height="48dp" />
-
         </LinearLayout>
         <Button
             android:id="@+id/btnConfirm"

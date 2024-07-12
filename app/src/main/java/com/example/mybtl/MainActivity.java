@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     showDialogLogin();
                 }else {
                     Intent intent2 = new Intent(MainActivity.this, BookingHistoryActivity.class);
+                    intent2.putExtra("email", email);
                     startActivity(intent2);
                 }
                 return false;
@@ -102,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        Button dialogButton = dialogView.findViewById(R.id.btnLogin);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
+        Button dialogButtonLogin = dialogView.findViewById(R.id.btnLogin);
+        dialogButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);

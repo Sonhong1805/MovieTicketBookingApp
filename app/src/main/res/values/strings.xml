@@ -12,6 +12,7 @@
     <string name="phone">SĐT</string>
     <string name="password">Mật khẩu</string>
     <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="tv_id_bill">Mã hoá đơn :</string>
     <string name="tv_name_film">Tên phim :</string>
     <string name="tv_price_ticket">Giá vé :</string>
     <string name="tv_premiere">Khởi chiếu :</string>
@@ -36,4 +37,8 @@
     <string name="menu_history">Lịch sử đặt vé</string>
     <string name="menu_account">Tài khoản</string>
     <string name="require_login">Bạn chưa đăng nhập</string>
+    <string-array name="payment_method_items">
+        <item>Tiền mặt</item>
+        <item>Chuyển khoản</item>
+    </string-array>
 </resources>

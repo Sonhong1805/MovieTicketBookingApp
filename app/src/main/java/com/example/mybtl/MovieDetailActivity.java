@@ -91,6 +91,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                         intent2.putExtra("name", name);
                         intent2.putExtra("premiere", premiere);
                         intent2.putExtra("price", price);
+                        intent2.putExtra("email", email);
                         startActivity(intent2);
                     }
                 }
@@ -107,8 +108,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        Button dialogButton = dialogView.findViewById(R.id.btnLogin);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
+        Button dialogButtonLogin = dialogView.findViewById(R.id.btnLogin);
+        dialogButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MovieDetailActivity.this, LoginActivity.class);

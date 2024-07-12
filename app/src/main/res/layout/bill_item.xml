@@ -4,24 +4,35 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingVertical="10dp">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/confirm_info_booking"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@color/white"
+            android:background="#CCCCCC"
             android:stretchColumns="*">
+            <TableRow android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@string/tv_id_bill"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:text="123123123"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
 
             <TableRow android:layout_marginBottom="5dp">
 
@@ -235,47 +246,5 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </TableRow>
-                <ImageView
-                    android:id="@+id/img_qr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/fake_qr"
-                    android:layout_gravity="center" />
         </TableLayout>
-    </ScrollView>
-    <LinearLayout
-        style="?android:attr/buttonBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_agree"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#B71C1C"
-            android:maxWidth="320dp"
-            android:text="@string/agree"
-            android:textColor="#F5FBF6" />
-
-        <Button
-            android:id="@+id/btn_cancel"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="#B71C1C"
-            android:maxWidth="320dp"
-            android:text="@string/reset"
-            android:textColor="#F5FBF6" />
-    </LinearLayout>
 </LinearLayout>
