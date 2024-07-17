@@ -29,11 +29,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="#B71C1C"
-            android:textSize="18sp"
+            android:backgroundTint="#BF1111"
             android:maxWidth="320dp"
             android:text="@string/login"
-            android:textColor="#F5FBF6" />
+            android:textColor="#F5FBF6"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -43,12 +43,12 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:textSize="18sp"
             android:layout_weight="1"
-            android:background="#B71C1C"
+            android:backgroundTint="#2C2A2A"
             android:maxWidth="320dp"
             android:text="@string/register"
-            android:textColor="#F5FBF6" />
+            android:textColor="#F5FBF6"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </LinearLayout>

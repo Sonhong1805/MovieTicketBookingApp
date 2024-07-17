@@ -9,4 +9,6 @@
     <color name="green">#669900</color>
     <color name="yellow">#FFEB3B</color>
     <color name="orange">#FF9800</color>
+    <color name="greycustom">#2C2A2A</color>
+    <color name="graycustom">#565656</color>
 </resources>

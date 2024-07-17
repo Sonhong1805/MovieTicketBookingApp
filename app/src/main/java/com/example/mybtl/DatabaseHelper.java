@@ -33,12 +33,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Price integer" + ")";
         db.execSQL(sqlMovies);
 
-        // bổ sung sau ngày đặt + giờ đặt
         String sqlBills = "create table Bills(" +
-                "Id integer primary key," +
+                "Id integer primary key autoincrement," +
+                "IdBill integer," +
+                "IdMovie integer,"+
                 "MovieName text," +
                 "MoviePremiere text," +
                 "MoviePrice integer," +
+                "DateOrder text," +
+                "TimeOrder text," +
                 "SelectedChair text," +
                 "SelectedFood text," +
                 "MethodPayment text," +

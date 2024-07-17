@@ -80,6 +80,49 @@
                     android:text="24/07/2024"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/tv_date_order"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_date_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24/07/2024"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/tv_time_order"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_time_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22:00"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -89,12 +132,15 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/tv_selected_chair"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
+                android:background="#BDBDBD"
+                android:gravity="center|left"
                 android:text="@string/choose_chair"
-                android:textColor="@color/blue"
-                android:textSize="20sp"
+                android:textColor="@color/greycustom"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -119,223 +165,238 @@
                     android:background="@color/black" />
 
                 <GridLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:columnCount="4"
                     android:rowCount="3">
+
                     <Button
                         android:id="@+id/chair1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="1" />
+
                     <Button
                         android:id="@+id/chair2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="2" />
+
                     <Button
                         android:id="@+id/chair3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="3" />
+
                     <Button
                         android:id="@+id/chair4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="4" />
+
                     <Button
                         android:id="@+id/chair5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="5" />
+
                     <Button
                         android:id="@+id/chair6"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="6" />
+
                     <Button
                         android:id="@+id/chair7"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="7" />
+
                     <Button
                         android:id="@+id/chair8"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="8" />
+
                     <Button
                         android:id="@+id/chair9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_columnWeight="1"
                         android:layout_columnSpan="2"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="9" />
+
                     <Button
                         android:id="@+id/chair10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_columnWeight="1"
                         android:layout_columnSpan="2"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="5dp"
                         android:backgroundTint="@color/green"
                         android:text="10" />
                 </GridLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical" >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/choose_food"
-            android:textColor="@color/blue"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_selected_food"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="#BCBCBC"
+                android:gravity="center|left"
+                android:text="@string/choose_food"
+                android:textColor="@color/greycustom"
+                android:textSize="22sp"
+                android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Coca cola"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="15.000 đ"
-                        android:textColor="@color/red"
-                        android:textSize="20sp"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:labelFor="@+id/edt_drink"
-                        android:paddingVertical="5dp"
-                        android:text="@string/quantity"
-                        android:textAlignment="center"
-                        android:textSize="20sp" />
-                    <EditText
-                        android:id="@+id/edt_drink"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/border_outline"
-                        android:ems="10"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:textAlignment="center"
-                        android:text="0"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-                    <TextView
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coca cola"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15.000 đ"
+                            android:textColor="@color/red"
+                            android:textSize="20sp"
+                            android:layout_marginTop="5dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bỏng ngô Caramel"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="50.000 đ"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/red"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:labelFor="@+id/edt_drink"
+                            android:paddingVertical="5dp"
+                            android:text="@string/quantity"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+                        <EditText
+                            android:id="@+id/edt_drink"
+                            android:layout_width="90dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/border_outline"
+                            android:ems="10"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:text="0"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:labelFor="@+id/edt_food"
-                        android:paddingVertical="5dp"
-                        android:text="@string/quantity"
-                        android:textAlignment="center"
-                        android:textSize="20sp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bỏng ngô Caramel"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50.000 đ"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/red"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edt_food"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/border_outline"
-                        android:ems="10"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:textAlignment="center"
-                        android:text="0"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:labelFor="@+id/edt_food"
+                            android:paddingVertical="5dp"
+                            android:text="@string/quantity"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/edt_food"
+                            android:layout_width="90dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/border_outline"
+                            android:ems="10"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:text="0"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:orientation="vertical" >
+
             <TextView
+                android:id="@+id/tv_method_payment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/payment_methods"
-                android:textColor="@color/blue"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="22sp"
                 android:textStyle="bold" />
             <Spinner
                 android:id="@+id/spn_method"
@@ -347,9 +408,11 @@
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:backgroundTint="@color/black"
+            android:textSize="20dp"
             android:text="@string/confirm"
             android:textColor="@color/white" />
     </LinearLayout>
 </ScrollView>
+

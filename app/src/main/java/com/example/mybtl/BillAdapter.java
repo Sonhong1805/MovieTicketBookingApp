@@ -35,7 +35,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
         if (bill == null){
             return;
         }
-        holder.tvId.setText(String.valueOf(bill.getId()));
+        holder.tvId.setText(String.valueOf(bill.getIdBill()));
         holder.tvName.setText(bill.getMovieName());
         holder.tvPremiere.setText(bill.getMoviePremiere());
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
@@ -50,6 +50,9 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
 
         int quantityChair = bill.getSelectedChair().split(", ").length;
         holder.tvQuantity.setText(String.valueOf(quantityChair));
+
+        holder.tvDateOrder.setText(bill.getDateOrder());
+        holder.tvTimeOrder.setText(bill.getTimeOrder());
     }
 
     @Override
@@ -61,7 +64,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
 
     public class BillViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvId,tvName,tvPremiere,tvTime,tvPrice,tvQuantity,tvSelectedChair,tvSelectedFood,tvMethodPayment,tvTotalPrice;
+        TextView tvId,tvName,tvPremiere,tvDateOrder,tvTimeOrder,tvPrice,tvQuantity,tvSelectedChair,tvSelectedFood,tvMethodPayment,tvTotalPrice;
 
         public BillViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,7 +77,8 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
             tvMethodPayment = itemView.findViewById(R.id.tv_method_payment);
             tvTotalPrice = itemView.findViewById(R.id.tv_total_price);
             tvQuantity = itemView.findViewById(R.id.tv_quantity);
-            tvTime = itemView.findViewById(R.id.tv_time);
+            tvDateOrder = itemView.findViewById(R.id.tv_date_order);
+            tvTimeOrder = itemView.findViewById(R.id.tv_time_order);
         }
     }
 }

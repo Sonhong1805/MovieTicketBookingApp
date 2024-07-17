@@ -8,29 +8,24 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:background="#2A2C2C"
+        android:gravity="center|left"
+        android:paddingHorizontal="10dp"
         android:text="@string/login_account"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp" />
-
-    <View
-        android:layout_width="400dp"
-        android:layout_height="1dp"
-        android:background="#ACA1A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="10dp"
-        />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:stretchColumns="*">
+
 
         <TableRow android:layout_marginBottom="5dp">
 
@@ -88,7 +83,7 @@
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -99,11 +94,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="#B71C1C"
-            android:textSize="18sp"
+            android:backgroundTint="#BF1111"
             android:maxWidth="320dp"
             android:text="@string/login"
-            android:textColor="#F5FBF6" />
+            android:textColor="#F5FBF6"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -113,12 +108,12 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:textSize="18sp"
             android:layout_weight="1"
-            android:background="#B71C1C"
+            android:backgroundTint="#2A2C2C"
             android:maxWidth="320dp"
             android:text="@string/register"
-            android:textColor="#F5FBF6" />
+            android:textColor="#F5FBF6"
+            android:textSize="18sp" />
 
     </LinearLayout>
 

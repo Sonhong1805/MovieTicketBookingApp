@@ -2,22 +2,28 @@ package com.example.mybtl;
 
 public class Bill {
     private int Id;
+    private int IdBill;
+    private int IdMovie;
     private String MovieName;
     private String MoviePremiere;
     private int MoviePrice;
+    private String DateOrder;
+    private String TimeOrder;
     private String SelectedChair;
-
     private String SelectedFood;
-
     private String MethodPayment;
     private String Email;
     private int TotalPrice;
 
-    public Bill(int id, String movieName, String moviePremiere, int moviePrice, String selectedChair, String selectedFood, String methodPayment, String email, int totalPrice) {
+    public Bill(int id, int idBill, int idMovie, String movieName, String moviePremiere, int moviePrice, String dateOrder, String timeOrder, String selectedChair, String selectedFood, String methodPayment, String email, int totalPrice) {
         Id = id;
+        IdBill = idBill;
+        IdMovie = idMovie;
         MovieName = movieName;
         MoviePremiere = moviePremiere;
         MoviePrice = moviePrice;
+        DateOrder = dateOrder;
+        TimeOrder = timeOrder;
         SelectedChair = selectedChair;
         SelectedFood = selectedFood;
         MethodPayment = methodPayment;
@@ -31,6 +37,22 @@ public class Bill {
 
     public void setId(int id) {
         Id = id;
+    }
+
+    public int getIdBill() {
+        return IdBill;
+    }
+
+    public void setIdBill(int idBill) {
+        IdBill = idBill;
+    }
+
+    public int getIdMovie() {
+        return IdMovie;
+    }
+
+    public void setIdMovie(int idMovie) {
+        IdMovie = idMovie;
     }
 
     public String getMovieName() {
@@ -55,6 +77,22 @@ public class Bill {
 
     public void setMoviePrice(int moviePrice) {
         MoviePrice = moviePrice;
+    }
+
+    public String getDateOrder() {
+        return DateOrder;
+    }
+
+    public void setDateOrder(String dateOrder) {
+        DateOrder = dateOrder;
+    }
+
+    public String getTimeOrder() {
+        return TimeOrder;
+    }
+
+    public void setTimeOrder(String timeOrder) {
+        TimeOrder = timeOrder;
     }
 
     public String getSelectedChair() {

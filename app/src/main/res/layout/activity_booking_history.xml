@@ -5,13 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/booking_history"
-    tools:context=".BookingHistoryActivity"
-    android:layout_margin="10dp">
+    tools:context=".BookingHistoryActivity">
+
+    <TextView
+        android:id="@+id/tv_inf"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#2C2A2A"
+        android:gravity="center|left"
+        android:text="Hoá đơn đã thanh toán"
+        android:textColor="#FAF6F6"
+        android:textSize="20sp"
+        android:paddingHorizontal="10dp"
+        android:layout_alignParentTop="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_bill_history"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_inf"
+        android:layout_above="@id/bottom_nav_view" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        app:itemBackground="@color/black"
+        app:itemIconSize="32dp"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white" />
 
 </RelativeLayout>

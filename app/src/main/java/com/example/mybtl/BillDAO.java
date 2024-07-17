@@ -8,41 +8,21 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class BillDAO {
-    public static ArrayList<Bill> getAll(Context context) {
-        ArrayList<Bill> ds = new ArrayList<>();
-        DatabaseHelper helper = new DatabaseHelper(context);
-        SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cs = db.rawQuery("select * from Bills", null);
-        cs.moveToFirst();
-        while (!cs.isAfterLast()) {
-            int id = cs.getInt(0);
-            String movieName = cs.getString(1);
-            String moviePremiere = cs.getString(2);
-            int moviePrice = cs.getInt(3);
-            String selectedChair = cs.getString(4);
-            String selectedFood = cs.getString(5);
-            String methodPayment = cs.getString(6);
-            String email = cs.getString(7);
-            int totalPrice = cs.getInt(8);
-            Bill bill = new Bill(id, movieName, moviePremiere,moviePrice,selectedChair,selectedFood,methodPayment,email,totalPrice);
-            ds.add(bill);
-            cs.moveToNext();
-        }
-        cs.close();
-        db.close();
-        return ds;
-    }
-    public static boolean insert(Context context, String movieName, String moviePremiere,int moviePrice, String selectedChair, String selectedFood,String methodPayment, String email, int totalPrice){
+    public static boolean insert(Context context,int idMovie, String movieName, String moviePremiere,int moviePrice,String dateOrder,String timeOrder, String selectedChair, String selectedFood,String methodPayment, String email, int totalPrice){
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        int id = generateRandomId(10);
-        values.put("Id", id);
+        int idBill = generateRandomIdBill();
+        values.put("IdBill", idBill);
+        values.put("IdMovie", idMovie);
         values.put("MovieName", movieName);
         values.put("MoviePremiere", moviePremiere);
         values.put("MoviePrice", moviePrice);
+        values.put("DateOrder", dateOrder);
+        values.put("TimeOrder", timeOrder);
         values.put("SelectedChair", selectedChair);
         values.put("SelectedFood", selectedFood);
         values.put("MethodPayment", methodPayment);
@@ -52,22 +32,19 @@ public class BillDAO {
         return (row > 0);
     }
 
-    private static int generateRandomId(int length) {
+    public static int generateRandomIdBill() {
         Random random = new Random();
-        StringBuilder stringBuilder = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            stringBuilder.append(random.nextInt(10));
-        }
-        return Integer.parseInt(stringBuilder.toString());
+        int randomIdBill = 1000000 + random.nextInt(9000000);
+        return randomIdBill;
     }
 
-    public static List<String> getSelectedChairsByMovie(Context context, String movieName) {
+    public static List<String> getSelectedChairs(Context context, int idMovie, String dateOrder, String timeOrder) {
         List<String> selectedChairs = new ArrayList<>();
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
         String[] columns = {"SelectedChair"};
-        String selection = "MovieName = ?";
-        String[] selectionArgs = {movieName};
+        String selection = "IdMovie = ? AND DateOrder = ? AND TimeOrder = ?";
+        String[] selectionArgs = {String.valueOf(idMovie), dateOrder, timeOrder};
         Cursor cursor = db.query("Bills", columns, selection, selectionArgs, null, null, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
@@ -80,12 +57,12 @@ public class BillDAO {
         return selectedChairs;
     }
 
-    public static boolean isChairSelected(Context context,String movieName, int chairNumber) {
+    public static boolean isChairSelected(Context context, int idMovie, String dateOrder, String timeOrder, int chairNumber) {
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        String selection = "MovieName = ? AND SelectedChair LIKE ?";
-        String[] selectionArgs = { movieName, "%" + chairNumber + "%" };
+        String selection = "IdMovie = ? AND DateOrder = ? AND TimeOrder = ? AND SelectedChair LIKE ?";
+        String[] selectionArgs = { String.valueOf(idMovie), dateOrder, timeOrder, "%" + chairNumber + "%" };
 
         Cursor cursor = null;
         try {
@@ -103,18 +80,22 @@ public class BillDAO {
         ArrayList<Bill> ds = new ArrayList<>();
         DatabaseHelper helper = new DatabaseHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cs = db.rawQuery("SELECT * FROM Bills WHERE Email LIKE ?", new String[]{email});
+        Cursor cs = db.rawQuery("SELECT * FROM Bills WHERE Email LIKE ? ORDER BY Id DESC", new String[]{email});
         cs.moveToFirst();
         while (!cs.isAfterLast()) {
             int id = cs.getInt(0);
-            String movieName = cs.getString(1);
-            String moviePremiere = cs.getString(2);
-            int moviePrice = cs.getInt(3);
-            String selectedChair = cs.getString(4);
-            String selectedFood = cs.getString(5);
-            String methodPayment = cs.getString(6);
-            int totalPrice = cs.getInt(8);
-            Bill bill = new Bill(id, movieName, moviePremiere,moviePrice,selectedChair,selectedFood,methodPayment,email,totalPrice);
+            int idBill = cs.getInt(1);
+            int idMovie = cs.getInt(2);
+            String movieName = cs.getString(3);
+            String moviePremiere = cs.getString(4);
+            int moviePrice = cs.getInt(5);
+            String dateOrder = cs.getString(6);
+            String timeOrder = cs.getString(7);
+            String selectedChair = cs.getString(8);
+            String selectedFood = cs.getString(9);
+            String methodPayment = cs.getString(10);
+            int totalPrice = cs.getInt(12);
+            Bill bill = new Bill(id,idBill,idMovie, movieName, moviePremiere,moviePrice,dateOrder,timeOrder,selectedChair,selectedFood,methodPayment,email,totalPrice);
             ds.add(bill);
             cs.moveToNext();
         }

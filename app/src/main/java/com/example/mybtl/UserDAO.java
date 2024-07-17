@@ -48,4 +48,20 @@ public class UserDAO {
         return user;
     }
 
+    // đổi mật khẩu
+    public static boolean changePassword(Context context, String email, String currentPassword, String newPassword) {
+        DatabaseHelper helper = new DatabaseHelper(context);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        // ktra pw đúng ko
+        Cursor cursor = db.rawQuery("SELECT * FROM Users WHERE Email = ? AND Password = ?", new String[]{email, currentPassword});
+        if (cursor.getCount() > 0) {
+            ContentValues values = new ContentValues();
+            values.put("Password", newPassword);
+            int rowsAffected = db.update("Users", values, "Email = ?", new String[]{email});
+            return rowsAffected > 0;
+        }
+        return false;
+    }
+
 }

@@ -44,6 +44,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         // gửi data movie sang trang chi tiết phim
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, MovieDetailActivity.class);
+            intent.putExtra("id", movie.getId());
             intent.putExtra("name", movie.getName());
             intent.putExtra("image", movie.getImage());
             intent.putExtra("content", movie.getContent());

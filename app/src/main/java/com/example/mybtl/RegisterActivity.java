@@ -63,13 +63,14 @@ public class RegisterActivity extends AppCompatActivity {
                     }
 
                     if(UserDAO.checkEmail(RegisterActivity.this,email)){
-                        Toast.makeText(RegisterActivity.this, "Tên đăng nhập đã tồn tại !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Email đã tồn tại !!!", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     if(UserDAO.register(RegisterActivity.this, fullname, email,password,phoneNumber)){
                         Toast.makeText(RegisterActivity.this, "Đăng ký thành công !!!", Toast.LENGTH_LONG).show();
                         resetField();
-                        finish();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }else {
                         Toast.makeText(RegisterActivity.this, "Đăng nhập không thành công !!!", Toast.LENGTH_SHORT).show();
                     }

@@ -18,6 +18,8 @@
     <string name="tv_premiere">Khởi chiếu :</string>
     <string name="tv_cinema">Suất chiếu :</string>
     <string name="tv_show_time">Thời gian chiếu :</string>
+    <string name="tv_date_order">Ngày đặt: </string>
+    <string name="tv_time_order">Giờ đặt: </string>
     <string name="tv_quantity">Số lượng vé :</string>
     <string name="tv_food">Đồ ăn/uống :</string>
     <string name="tv_payment">Thanh toán :</string>
@@ -37,8 +39,33 @@
     <string name="menu_history">Lịch sử đặt vé</string>
     <string name="menu_account">Tài khoản</string>
     <string name="require_login">Bạn chưa đăng nhập</string>
+    <string name="choose_date">Chọn suất chiếu</string>
+    <string name="profile_picture_description" />
     <string-array name="payment_method_items">
-        <item>Tiền mặt</item>
-        <item>Chuyển khoản</item>
+        <item>Ví MoMo</item>
+        <item>Ví Shoppee Pay</item>
+        <item>Ví Zalo Pay</item>
+        <item>Thẻ Nội địa</item>
+        <item>Thẻ Quốc tế</item>
+    </string-array>
+    <string-array name="time_items">
+        <item>14:00</item>
+        <item>14:01</item>
+        <item>14:02</item>
+        <item>14:03</item>
+        <item>14:04</item>
+        <item>14:05</item>
+        <item>14:06</item>
+        <item>14:07</item>
+        <item>14:08</item>
+        <item>14:09</item>
+    </string-array>
+    <string-array name="category_items">
+        <item>Tất cả</item>
+        <item>Hành động</item>
+        <item>Kinh dị</item>
+        <item>Hài hước</item>
+        <item>Lãng mạn</item>
+        <item>Trinh thám</item>
     </string-array>
 </resources>

@@ -1,59 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/register"
+    android:gravity="top|left"
     android:orientation="vertical">
 
   <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
       android:layout_gravity="center"
       android:layout_marginTop="10dp"
+      android:background="#2C2A2A"
+      android:gravity="center|left"
+      android:paddingHorizontal="10dp"
       android:text="@string/register_account"
-      android:textColor="@color/black"
+      android:textColor="@color/white"
       android:textSize="20sp" />
 
   <View
       android:layout_width="400dp"
       android:layout_height="1dp"
-      android:background="#ACA1A1"
       android:layout_gravity="center"
       android:layout_marginTop="2dp"
       android:layout_marginBottom="10dp"
-      />
+      android:background="#ACA1A1" />
 
   <TableLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_height="300dp"
       android:layout_margin="5dp"
-      android:stretchColumns="*"
-      android:background="@color/white">
-    <TableRow android:layout_marginBottom="5dp">
+      android:background="@color/white"
+      android:stretchColumns="*">
+
+    <TableRow android:layout_marginBottom="10dp">
+
       <TextView
-          android:layout_height="match_parent"
           android:layout_width="0dp"
-          android:text="@string/fullname"
-          android:textColor="@color/black"
-          android:padding="8dp"
-          android:textSize="17sp"
+          android:layout_height="match_parent"
           android:layout_weight="1"
           android:labelFor="@id/edtFullname"
-          android:paddingHorizontal="10dp"/>
+          android:padding="8dp"
+          android:paddingHorizontal="10dp"
+          android:text="@string/fullname"
+          android:textColor="@color/black"
+          android:textSize="17sp" />
+
       <EditText
           android:id="@+id/edtFullname"
           android:layout_width="0dp"
           android:layout_height="48dp"
-          android:layout_weight="3"
-          android:textSize="20sp"
           android:layout_marginStart="0dp"
-          android:inputType="text"
+          android:layout_weight="3"
           android:autofillHints="email"
+          android:inputType="text"
           android:maxWidth="488dp"
-          android:paddingHorizontal="10dp"/>
+          android:paddingHorizontal="10dp"
+          android:textSize="20sp" />
     </TableRow>
-    <TableRow android:layout_marginBottom="5dp">
+
+    <TableRow android:layout_marginBottom="10dp">
+
       <TextView
           android:layout_width="0dp"
           android:layout_height="match_parent"
@@ -63,144 +71,158 @@
           android:paddingTop="8dp"
           android:text="@string/email"
           android:textColor="@color/black"
-          android:textSize="16sp" />
+          android:textSize="17sp" />
+
       <EditText
           android:id="@+id/edtEmail"
           android:layout_width="0dp"
           android:layout_height="48dp"
-          android:layout_weight="3"
-          android:textSize="20sp"
           android:layout_marginStart="0dp"
-          android:inputType="textEmailAddress"
+          android:layout_weight="3"
           android:autofillHints="username"
+          android:inputType="textEmailAddress"
           android:maxWidth="488dp"
-          android:paddingHorizontal="10dp"/>
+          android:paddingHorizontal="10dp"
+          android:textSize="20sp" />
     </TableRow>
 
-    <TableRow android:layout_marginBottom="5dp">
+    <TableRow android:layout_marginBottom="10dp">
+
       <TextView
-          android:layout_height="match_parent"
           android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:labelFor="@+id/edtPhoneNumber"
+          android:padding="8dp"
           android:text="@string/phone"
           android:textColor="@color/black"
-          android:padding="8dp"
-          android:textSize="17sp"
-          android:layout_weight="1"
-          android:labelFor="@+id/edtPhoneNumber"/>
+          android:textSize="17sp" />
+
       <EditText
           android:id="@+id/edtPhoneNumber"
           android:layout_width="0dp"
           android:layout_height="48dp"
-          android:layout_weight="3"
-          android:textSize="20sp"
           android:layout_marginStart="0dp"
-          android:inputType="phone"
+          android:layout_weight="3"
           android:autofillHints="phone"
+          android:inputType="phone"
           android:maxWidth="488dp"
-          android:paddingHorizontal="10dp"/>
+          android:paddingHorizontal="10dp"
+          android:textSize="20sp" />
     </TableRow>
-    <TableRow android:layout_marginBottom="5dp">
+
+    <TableRow android:layout_marginBottom="10dp">
+
       <TextView
-          android:layout_height="match_parent"
           android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:labelFor="@id/edtPassword"
+          android:padding="8dp"
           android:text="@string/password"
           android:textColor="@color/black"
-          android:padding="8dp"
-          android:textSize="17sp"
-          android:layout_weight="1"
-          android:labelFor="@id/edtPassword"/>
+          android:textSize="17sp" />
+
       <EditText
           android:id="@+id/edtPassword"
           android:layout_width="0dp"
           android:layout_height="48dp"
-          android:layout_weight="3"
-          android:textSize="20sp"
           android:layout_marginStart="0dp"
-          android:inputType="textPassword"
+          android:layout_weight="3"
           android:autofillHints="password"
+          android:inputType="textPassword"
           android:maxWidth="488dp"
-          android:paddingHorizontal="10dp"/>
+          android:paddingHorizontal="10dp"
+          android:textSize="20sp" />
     </TableRow>
-    <TableRow android:layout_marginBottom="5dp">
+
+    <TableRow
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
       <TextView
-          android:layout_height="match_parent"
           android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:labelFor="@+id/edtConfirmPassword"
+          android:paddingHorizontal="8dp"
           android:text="@string/confirm_password"
           android:textColor="@color/black"
-          android:paddingHorizontal="8dp"
-          android:paddingTop="8dp"
-          android:textSize="14sp"
-          android:layout_weight="1"
-          android:labelFor="@+id/edtConfirmPassword"/>
+          android:textSize="17sp" />
+
       <EditText
           android:id="@+id/edtConfirmPassword"
           android:layout_width="0dp"
           android:layout_height="48dp"
-          android:layout_weight="3"
-          android:textSize="20sp"
           android:layout_marginStart="0dp"
-          android:inputType="textPassword"
+          android:layout_weight="3"
           android:autofillHints="password"
+          android:inputType="textPassword"
           android:maxWidth="488dp"
-          android:paddingHorizontal="10dp"/>
+          android:paddingHorizontal="10dp"
+          android:textSize="20sp" />
     </TableRow>
   </TableLayout>
 
   <LinearLayout
+      style="?android:attr/buttonBarStyle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="horizontal"
       android:layout_marginTop="5dp"
-      style="?android:attr/buttonBarStyle">
+      android:orientation="horizontal">
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:background="@color/red"
-        android:text="@string/register"
-        android:textColor="#F5FBF6"
-        android:layout_marginStart="10dp"
         style="?android:attr/buttonBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:backgroundTint="#BF1111"
         android:maxWidth="320dp"
-        />
+        android:textSize="18dp"
+        android:text="@string/register"
+        android:textColor="#F5FBF6" />
 
     <Button
         android:id="@+id/btnReset"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/reset"
-        android:textColor="#F5FBF6"
-        android:background="@color/red"
-        android:layout_marginTop="10dp"
+        android:layout_height="60dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:backgroundTint="#2A2C2C"
         android:maxWidth="320dp"
-        style="?android:attr/buttonBarStyle"/>
+        android:textSize="18dp"
+        android:text="@string/reset"
+        android:textColor="#F5FBF6" />
   </LinearLayout>
+
   <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      android:layout_marginTop="5dp"
+      android:layout_height="60dp"
       android:layout_gravity="center"
-      android:gravity="center">
+      android:layout_marginTop="2dp"
+      android:gravity="center"
+      android:orientation="horizontal">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bạn đã có tài khoản?"/>
+        android:textSize="16dp"
+        android:text="Bạn đã có tài khoản?" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:textSize="16dp"
         android:text="@string/login"
-        android:textColor="@color/black"
-        android:background="@color/transparent" />
+        android:textColor="@color/red" />
   </LinearLayout>
 
 

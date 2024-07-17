@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingVertical="10dp">
-
+    android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2A2C2C"
+        android:gravity="center"
         android:text="@string/confirm_info_booking"
-        android:textAlignment="center"
+        android:textColor="#C3C3C3"
         android:textSize="24sp"
         android:textStyle="bold" />
     <ScrollView
@@ -78,17 +78,40 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:text="@string/tv_cinema"
+                    android:text="@string/tv_date_order"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/tv_time"
+                    android:id="@+id/tv_date_order"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:padding="8dp"
-                    android:text="9AM - 10AM"
+                    android:text="01/01/1111"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+            <TableRow android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@string/tv_time_order"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_time_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:text="22:00"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -183,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:padding="8dp"
-                    android:text="Coca cola (15.000 VNĐ) x 2, \nBỏng ngô Caramel (50.000 VNĐ) x 4"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -235,19 +258,19 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </TableRow>
-                <ImageView
-                    android:id="@+id/img_qr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/fake_qr"
-                    android:layout_gravity="center" />
+            <ImageView
+                android:id="@+id/img_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/fake_qr"
+                android:layout_gravity="center" />
         </TableLayout>
     </ScrollView>
     <LinearLayout
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
@@ -255,12 +278,13 @@
             android:id="@+id/btn_agree"
             style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="#B71C1C"
+            android:backgroundTint="#BF1111"
             android:maxWidth="320dp"
+            android:textSize="20dp"
             android:text="@string/agree"
             android:textColor="#F5FBF6" />
 
@@ -268,13 +292,14 @@
             android:id="@+id/btn_cancel"
             style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:background="#B71C1C"
+            android:backgroundTint="#2A2C2C"
             android:maxWidth="320dp"
+            android:textSize="20dp"
             android:text="@string/reset"
             android:textColor="#F5FBF6" />
     </LinearLayout>

@@ -17,7 +17,6 @@
             android:layout_margin="10dp"
             android:src="@drawable/deadpool3"
             android:layout_gravity="center"
-            android:scaleType="fitXY"
             />
 
         <TextView
@@ -27,10 +26,10 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:textColor="@color/blue"
-            android:textSize="24sp"
             android:text="Deadpool và Wolverine"
-            />
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_category"
@@ -73,8 +72,7 @@
             android:layout_margin="10dp"
             android:text="Wolverine đang hồi phục sau vết thương khi anh ấy đi ngang qua con đường với Deadpool mồm mép. Họ hợp sức để đánh bại kẻ thù chung."
             android:textColor="#000000"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
 
 
@@ -86,20 +84,44 @@
             android:layout_height="250dp"
             />
 
-        <Spinner
-            android:id="@+id/sp_time"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_margin="10dp"
-            />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/choose_date"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <Spinner
+                android:id="@+id/spn_date"
+                android:layout_width="match_parent"
+                android:background="@drawable/border_spinner"
+                android:spinnerMode="dropdown"
+                android:layout_marginBottom="10dp"
+                android:layout_height="48dp" />
+            <Spinner
+                android:id="@+id/spn_time"
+                android:layout_width="match_parent"
+                android:background="@drawable/border_spinner"
+                android:spinnerMode="dropdown"
+                android:entries="@array/time_items"
+                android:layout_height="48dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_booking"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:text="@string/booking"
-            />
+            android:backgroundTint="#BF1111"
+            android:textSize="22dp"
+            android:text="@string/booking" />
 
     </LinearLayout>
 
